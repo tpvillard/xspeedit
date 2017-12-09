@@ -78,19 +78,19 @@ public class FirstFitRobot extends AbstractRobot {
      */
     private static class Box {
 
-        List<Integer> items = new ArrayList<>();
-        int sum = 0;
+        private final List<Integer> items = new ArrayList<>();
+        private int sum = 0;
 
         void add(int item) {
             items.add(item);
             sum = sum + item;
         }
 
-        boolean fitFor(int item) {
+        private boolean fitFor(int item) {
             return sum + item <= CAPACITY;
         }
 
-        boolean isFull() {
+        private boolean isFull() {
             return sum == CAPACITY;
         }
 
