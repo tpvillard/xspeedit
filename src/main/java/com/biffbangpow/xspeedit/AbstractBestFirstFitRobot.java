@@ -67,15 +67,15 @@ public abstract class AbstractBestFirstFitRobot extends AbstractRobot {
         }
 
         protected boolean fitFor(int item) {
-            return sum + item <= CAPACITY;
+            return sum + item <= BOX_CAPACITY;
         }
 
         private boolean isFull() {
-            return sum == CAPACITY;
+            return sum == BOX_CAPACITY;
         }
 
         protected int getSpaceLeft() {
-            return CAPACITY - sum;
+            return BOX_CAPACITY - sum;
         }
 
         @Override

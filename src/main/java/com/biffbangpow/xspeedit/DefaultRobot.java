@@ -20,7 +20,7 @@ public class DefaultRobot extends AbstractRobot {
         int sum = 0;
         for (int item: items) {
             sum = sum + item;
-            if (sum > CAPACITY) {
+            if (sum > BOX_CAPACITY) {
 
                 // Close the box, create a new one
                 sum = item;

@@ -8,7 +8,7 @@ public abstract class AbstractRobot {
     /**
      * The box capacity.
      */
-    protected static final int CAPACITY = 10;
+    protected static final int BOX_CAPACITY = 10;
 
 
     /**
