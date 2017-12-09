@@ -39,6 +39,7 @@ public class PerfTest {
         DefaultRobot robot = new DefaultRobot();
         MinMax minMax = doMeasure(robot);
 
+        // FIXME very unstable.
         // Verify the algorithm is roughly O(n)
         assertApproximateEquals(minMax.largeTime / minMax.smallTime, ratio);
     }
