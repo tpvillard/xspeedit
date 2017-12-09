@@ -30,12 +30,14 @@ public class FirstFitRobot extends AbstractRobot {
             Box box = searchFirstFit(item, openedBoxes);
             if (box == null) {
                 stat.incBoxCount();
+                stat.incOpenedBoxCount();
                 box = new Box();
                 openedBoxes.add(box);
             }
             box.add(item);
             if (box.isFull()) {
                 // This optimization speeds up the search process
+                stat.decOpenedBoxCount();
                 openedBoxes.remove(box);
                 boxes.append(box).append("/");
             }

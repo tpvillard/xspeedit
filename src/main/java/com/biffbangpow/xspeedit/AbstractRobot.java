@@ -14,7 +14,7 @@ public abstract class AbstractRobot {
     /**
      * Some stats to measure performance.
      */
-    protected Stat stat = new Stat();
+    protected Stat stat;
 
 
     /**
@@ -37,6 +37,7 @@ public abstract class AbstractRobot {
      * @return the packed items.
      */
     String doPack(int[] items) {
+        stat = new Stat();
         stat.setStartTime(System.nanoTime());
         String res = pack(items);
         stat.setEndTime(System.nanoTime());

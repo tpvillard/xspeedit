@@ -2,19 +2,35 @@ package com.biffbangpow.xspeedit;
 
 /**
  * Statistics for algo performance.
+ *
+ * <p>We track:</p>
+ * <p>Box count: the number of box used</p>
+ * <p>Max opened box count: the maximum number of opened boxes while the algorithm is running.
+ * This gives an indication of space complexity for the algorithm.</p>
+ * <p>elapsed time: time used to resolve the problem</p>
  */
 public class Stat {
 
     private int boxCount;
+    private int openedBoxCount;
+    private int maxOpenedBoxCount;
     private long startTime;
     private long endTime;
 
-    public int getBoxCount() {
-        return boxCount;
-    }
 
     public void incBoxCount() {
         boxCount++;
+    }
+
+    public void incOpenedBoxCount() {
+        openedBoxCount++;
+        if (openedBoxCount > maxOpenedBoxCount) {
+            maxOpenedBoxCount = openedBoxCount;
+        }
+    }
+
+    public void decOpenedBoxCount() {
+        openedBoxCount--;
     }
 
     public long getElapsedTime() {
@@ -33,6 +49,7 @@ public class Stat {
     public String toString() {
         return "Stat{" +
                 "boxCount=" + boxCount +
+                ", maxOpenedBoxCount=" + maxOpenedBoxCount +
                 ", elapsedTime=" + getElapsedTime() +
                 '}';
     }
