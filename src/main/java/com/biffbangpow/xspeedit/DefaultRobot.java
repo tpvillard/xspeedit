@@ -14,7 +14,7 @@ public class DefaultRobot extends AbstractRobot {
     @Override
     public String pack(int[] items) {
 
-        // only one box is used at a given time.
+        // only one box is used at any given time.
         stat.incOpenedBoxCount();
         StringBuilder boxes = new StringBuilder();
         int sum = 0;

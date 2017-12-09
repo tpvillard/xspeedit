@@ -4,12 +4,13 @@ package com.biffbangpow.xspeedit;
 import java.util.List;
 
 /**
- * A robot implementing first fit algorithm.
+ * A robot implementing best fit algorithm.
  *
- * <p>Search for a box in the opened box list in which the item will fit. The first box found is used.</p>
+ * <p>Search for a box in the opened box list in which the item will fit.
+ * The box having the minimum space left is selected.</p>
  *
  */
-public class FirstFitRobot extends AbstractBestFirstFitRobot {
+public class BestFitRobot extends AbstractBestFirstFitRobot {
 
     /**
      * Returns the first box in which the item can fit.
@@ -21,10 +22,14 @@ public class FirstFitRobot extends AbstractBestFirstFitRobot {
     protected Box searchBox(int item, List<Box> boxes) {
 
         Box found = null;
+        int minSpaceLeft = 10;
         for (Box box : boxes) {
             if (box.fitFor(item)) {
-                found = box;
-                break;
+                int spaceLeft = box.getSpaceLeft() - item;
+                if (spaceLeft <= minSpaceLeft) {
+                    minSpaceLeft = spaceLeft;
+                    found = box;
+                }
             }
         }
         return found;
