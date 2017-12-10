@@ -1,5 +1,6 @@
-package com.biffbangpow.xspeedit.strategy;
+package com.biffbangpow.xspeedit.Perf;
 
+import com.biffbangpow.xspeedit.strategy.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
