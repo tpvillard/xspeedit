@@ -4,12 +4,12 @@
 
 The default solution described in the XspeedIt problem statement use a non optimal solution
 in which a box (or bin) is closed as soon as the current element to treat can't fit in. 
-At any given point of time, there is only one box (or bin) opened.
+At any given point in time, there is only one box (or bin) opened.
 
 ### Decision ###
 
-Implement a variation in which box remains opened as long as they have not reached
-their capacity. The robot holds list of opened box. For each new item to pack, the
+Implement a variation in which boxes remain opened as long as they have not reached
+their capacity. The robot holds a list of opened box. For each new item to pack, the
 robot will use the first box in which the item can fit.
 
 This algorithm is known as the first fit bin packing strategy. We'll assume that in the

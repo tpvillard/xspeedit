@@ -22,6 +22,13 @@ public class Stat {
         boxCount++;
     }
 
+    public int getBoxCount() {
+        return boxCount;
+    }
+
+    /**
+     * Increment the opened box count.
+     */
     public void incOpenedBoxCount() {
         openedBoxCount++;
         if (openedBoxCount > maxOpenedBoxCount) {
@@ -29,6 +36,9 @@ public class Stat {
         }
     }
 
+    /**
+     * Decrement the opened box count.
+     */
     public void decOpenedBoxCount() {
         openedBoxCount--;
     }

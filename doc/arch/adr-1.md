@@ -5,7 +5,7 @@
 XspeedIt problem is described in README.md.
 It is a variation of the bin packing problem where objects of different volumes must be packed into a 
 finite number of bins or containers each of volume V in a way that minimizes the number of bins used.
-The problem is described[here](https://en.wikipedia.org/wiki/Bin_packing_problem)or
+The problem is described [here](https://en.wikipedia.org/wiki/Bin_packing_problem) or
 [here](https://fr.wikipedia.org/wiki/Probl%C3%A8me_de_bin_packing).
 
 A first solution to the problem is described in README.md. 

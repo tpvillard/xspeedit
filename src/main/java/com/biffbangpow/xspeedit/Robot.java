@@ -1,7 +1,6 @@
 package com.biffbangpow.xspeedit;
 
-import com.biffbangpow.xspeedit.strategy.PackingStrategy;
-import com.biffbangpow.xspeedit.strategy.Stat;
+import com.biffbangpow.xspeedit.strategy.*;
 
 /**
  * A robot for packing items into boxes of a given capacity.
@@ -66,5 +65,29 @@ public class Robot {
             }
         }
         return items;
+    }
+
+    /**
+     * creates a robot with the default packing strategy.
+     * @return the robot
+     */
+    public static Robot newDefautRobot() {
+        return new Robot(new DefaultPackingStrategy());
+    }
+
+    /**
+     * creates a robot with the first fit packing strategy.
+     * @return the robot
+     */
+    public static Robot newFirstFitRobot() {
+        return new Robot(new BestFirstFitStrategy(new FirstFitSearch()));
+    }
+
+    /**
+     * creates a robot with the best fit packing strategy.
+     * @return the robot
+     */
+    public static Robot newBestFitRobot() {
+        return new Robot(new BestFirstFitStrategy(new BestFitSearch()));
     }
 }

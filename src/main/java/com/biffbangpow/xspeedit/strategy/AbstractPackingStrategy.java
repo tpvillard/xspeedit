@@ -6,14 +6,9 @@ package com.biffbangpow.xspeedit.strategy;
 public abstract class AbstractPackingStrategy implements PackingStrategy {
 
     /**
-     * The box capacity.
-     */
-    protected static final int BOX_CAPACITY = 10;
-
-    /**
      * Some stats to measure performance.
      */
-    protected Stat stat;
+    protected Stat stat = new Stat();
 
     /**
      * Performs the pack operation.
@@ -25,6 +20,7 @@ public abstract class AbstractPackingStrategy implements PackingStrategy {
     @Override
     public String pack(int[] items) {
 
+        // Create brand new stat for this run
         stat = new Stat();
         stat.setStartTime(System.nanoTime());
         String res = doPack(items);

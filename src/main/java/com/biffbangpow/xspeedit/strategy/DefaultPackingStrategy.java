@@ -20,7 +20,7 @@ public class DefaultPackingStrategy extends AbstractPackingStrategy {
         int sum = 0;
         for (int item: items) {
             sum = sum + item;
-            if (sum > BOX_CAPACITY) {
+            if (sum > Box.CAPACITY) {
 
                 // Close the box, create a new one
                 sum = item;

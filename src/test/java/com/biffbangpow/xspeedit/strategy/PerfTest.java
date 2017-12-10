@@ -12,14 +12,14 @@ import java.util.Random;
  * <p>
  * The idea is to rank the algorithm time complexity:
  * <p>
- * O(1) < O(log(n)) < O(n) < O(n * log(n)) < O(n2) < O(n3) < O(kn) < etc...
+ * O(1) < O(log(n)) < O(n) < O(n * log(n)) < O(n2) < O(n3) < O(nk) < etc...
  * FIXME ideally this class should not be run at each unit tests run...
  */
 public class PerfTest {
 
     private int[] smallDataSet;
     private int[] largeDataSet;
-    private int ratio = 100;
+    private int ratio = 10;
 
     @BeforeClass
     public void setUp() {
@@ -33,53 +33,49 @@ public class PerfTest {
     }
 
     @Test
-    public void measure_complexity_for_default_robot() {
+    public void measure_complexity_for_default_strategy() {
 
         DefaultPackingStrategy strategy = new DefaultPackingStrategy();
-        MinMax minMax = doMeasure(strategy);
+        float estimation = doMeasure(strategy);
 
-        // FIXME very unstable.
-        // Verify the algorithm is roughly O(n)
-        // assertApproximateEquals(minMax.largeTime / minMax.smallTime, ratio);
+        // Verify the algorithm is roughly O(n log (n))
+        assertApproximateEquals(estimation, ratio);
     }
 
     @Test
-    public void measure_complexity_for_firstfit_robot() {
+    public void measure_complexity_for_first_fit_strategy() {
 
-        FirstFitStrategy robot = new FirstFitStrategy();
-        MinMax minMax = doMeasure(robot);
+        BestFirstFitStrategy strategy = new BestFirstFitStrategy(new FirstFitSearch());
+        float estimation = doMeasure(strategy);
 
-        // FIXME very unstable.
         // Verify the algorithm is roughly O(10n)
-        // assertApproximateEquals(minMax.largeTime / minMax.smallTime, ratio * 10);
+        assertApproximateEquals(estimation, ratio * 3);
     }
 
     @Test
-    public void measure_complexity_for_bestfit_robot() {
+    public void measure_complexity_for_best_fit_robot() {
 
-        BestFitStrategy robot = new BestFitStrategy();
-        MinMax minMax = doMeasure(robot);
+        BestFirstFitStrategy strategy = new BestFirstFitStrategy(new BestFitSearch());
+        float estimation = doMeasure(strategy);
 
-        // FIXME very unstable.
-        // Verify the algorithm is roughly O(10n)
-        // assertApproximateEquals(minMax.largeTime / minMax.smallTime, ratio * 10);
+        assertApproximateEquals(estimation, ratio * 3);
     }
 
-    private MinMax doMeasure(PackingStrategy strategy) {
+    private float doMeasure(PackingStrategy strategy) {
 
         // Do several run to let the jvm performs optimization
         MinMax minMax = new MinMax();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 200; i++) {
             strategy.pack(smallDataSet);
             log(strategy, smallDataSet.length);
-            minMax.smallTime = strategy.getStat().getElapsedTime();
+            minMax.smallTime = minMax.smallTime + strategy.getStat().getElapsedTime();
 
             strategy.pack(largeDataSet);
             log(strategy, largeDataSet.length);
-            minMax.largeTime = strategy.getStat().getElapsedTime();
+            minMax.largeTime =  minMax.largeTime + strategy.getStat().getElapsedTime();
             System.out.println("ratio: " + minMax.largeTime / minMax.smallTime);
         }
-        return minMax;
+        return minMax.largeTime / minMax.smallTime;
     }
 
     private void assertApproximateEquals(double actual, double expected) {
