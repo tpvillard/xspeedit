@@ -1,4 +1,4 @@
-package com.biffbangpow.xspeedit;
+package com.biffbangpow.xspeedit.strategy;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -35,8 +35,8 @@ public class PerfTest {
     @Test
     public void measure_complexity_for_default_robot() {
 
-        DefaultRobot robot = new DefaultRobot();
-        MinMax minMax = doMeasure(robot);
+        DefaultPackingStrategy strategy = new DefaultPackingStrategy();
+        MinMax minMax = doMeasure(strategy);
 
         // FIXME very unstable.
         // Verify the algorithm is roughly O(n)
@@ -46,7 +46,7 @@ public class PerfTest {
     @Test
     public void measure_complexity_for_firstfit_robot() {
 
-        FirstFitRobot robot = new FirstFitRobot();
+        FirstFitStrategy robot = new FirstFitStrategy();
         MinMax minMax = doMeasure(robot);
 
         // FIXME very unstable.
@@ -57,7 +57,7 @@ public class PerfTest {
     @Test
     public void measure_complexity_for_bestfit_robot() {
 
-        BestFitRobot robot = new BestFitRobot();
+        BestFitStrategy robot = new BestFitStrategy();
         MinMax minMax = doMeasure(robot);
 
         // FIXME very unstable.
@@ -65,18 +65,18 @@ public class PerfTest {
         // assertApproximateEquals(minMax.largeTime / minMax.smallTime, ratio * 10);
     }
 
-    private MinMax doMeasure(AbstractRobot robot) {
+    private MinMax doMeasure(PackingStrategy strategy) {
 
         // Do several run to let the jvm performs optimization
         MinMax minMax = new MinMax();
         for (int i = 0; i < 10; i++) {
-            robot.doPack(smallDataSet);
-            log(robot, smallDataSet.length);
-            minMax.smallTime = robot.getStats().getElapsedTime();
+            strategy.pack(smallDataSet);
+            log(strategy, smallDataSet.length);
+            minMax.smallTime = strategy.getStat().getElapsedTime();
 
-            robot.doPack(largeDataSet);
-            log(robot, largeDataSet.length);
-            minMax.largeTime = robot.getStats().getElapsedTime();
+            strategy.pack(largeDataSet);
+            log(strategy, largeDataSet.length);
+            minMax.largeTime = strategy.getStat().getElapsedTime();
             System.out.println("ratio: " + minMax.largeTime / minMax.smallTime);
         }
         return minMax;
@@ -88,10 +88,10 @@ public class PerfTest {
         Assert.assertTrue(min <= actual && actual <= max);
     }
 
-    private void log(AbstractRobot robot, int size) {
+    private void log(PackingStrategy strategy, int size) {
 
         MessageFormat msg = new MessageFormat("Size {0}, {1}");
-        Object[] args = {size, robot.getStats()};
+        Object[] args = {size, strategy.getStat()};
         System.out.println(msg.format(args));
     }
 

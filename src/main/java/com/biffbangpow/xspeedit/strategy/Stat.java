@@ -1,4 +1,4 @@
-package com.biffbangpow.xspeedit;
+package com.biffbangpow.xspeedit.strategy;
 
 /**
  * Statistics for algo performance.

@@ -1,21 +1,18 @@
 package com.biffbangpow.xspeedit;
 
+import com.biffbangpow.xspeedit.strategy.PackingStrategy;
+import com.biffbangpow.xspeedit.strategy.Stat;
+
 /**
- * An abstract robot for packing items into boxes of a given capacity.
+ * A robot for packing items into boxes of a given capacity.
  */
-public abstract class AbstractRobot {
+public class Robot {
 
-    /**
-     * The box capacity.
-     */
-    protected static final int BOX_CAPACITY = 10;
+    private final PackingStrategy strategy;
 
-
-    /**
-     * Some stats to measure performance.
-     */
-    protected Stat stat;
-
+    public Robot(PackingStrategy strategy) {
+        this.strategy = strategy;
+    }
 
     /**
      * Pack the items.
@@ -28,27 +25,8 @@ public abstract class AbstractRobot {
      */
     public String pack(String input) {
 
-        return doPack(of(input));
+        return strategy.pack(of(input));
     }
-
-    /**
-     * Pack the items and compute the elapsed time.
-     * @param items the items to pack
-     * @return the packed items.
-     */
-    String doPack(int[] items) {
-        stat = new Stat();
-        stat.setStartTime(System.nanoTime());
-        String res = pack(items);
-        stat.setEndTime(System.nanoTime());
-        return res;
-    }
-
-    /**
-     * @param items the items to pack
-     * @return the packed items as a "/" separated string.
-     */
-    protected abstract String pack(int[] items);
 
     /**
      * Returns the stats.
@@ -56,7 +34,7 @@ public abstract class AbstractRobot {
      * @return the stats
      */
     public Stat getStats() {
-        return stat;
+        return strategy.getStat();
     }
 
     /**

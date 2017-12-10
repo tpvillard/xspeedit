@@ -1,18 +1,18 @@
-package com.biffbangpow.xspeedit;
+package com.biffbangpow.xspeedit.strategy;
 
 /**
- * A default robot implementation.
+ * A default packing strategy.
  *
- * <p>the default robot uses the most basic algorithm.
+ * <p>the default packing strategy uses the most basic algorithm.
  * It places each item into the current box as long as it will fit in.</p>
  * <p>If it does not fit, the current box is closed and a new one is created</p>
  *
  */
-public class DefaultRobot extends AbstractRobot {
+public class DefaultPackingStrategy extends AbstractPackingStrategy {
 
 
     @Override
-    public String pack(int[] items) {
+    public String doPack(int[] items) {
 
         // only one box is used at any given time.
         stat.incOpenedBoxCount();

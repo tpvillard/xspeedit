@@ -1,4 +1,4 @@
-### Architecture Design Record 1: XspeedIt Initial Design. ###
+### Architecture Design Record 1: Default Algorithm implementation. ###
 
 ### Context ###
 
@@ -13,26 +13,27 @@ The solution is non optimal and requires optimization.
 
 ### Decision ###
 
-Implement the non optimal solution that will serve as a basis for further optimization.
+Implement the non optimal solution (hereafter referred as the default solution)
+that will serve as a basis for further optimization.
 The initial design should leave rooms for extensibility so that new solutions (algorithms)
 can be easily tested.
 
 Algorithms should be evaluated according to the optimization they provide 
-(ie the number of resulting bin or boxes saved) but also according to their response time
+(ie the percentage of bin or boxes saved) but also according to their response time
 (the time to solve the problem for a given input size), their time complexity (how the algorithm scales when 
 the input size grows) and their space complexity (the amount of memory used when the input
 size grows). Optimization is necessarily a tradeoff between all theses factors.
 
 ### Status ###
 
-Accepted
+Accepted.
 
 ### Consequences ###
 
 A specific test class will be built to compare the various algorithm used.
 It will track:
 
-* The number of spare bins compared to the default solution.
-* The response time compared to the default solution.
-* The time complexity compared to the default solution.
-* The space complexity compared to the default solution.
+* The number of bins used.
+* The response time of the algorithm.
+* The estimated time complexity of the algorithm.
+* The estimated space complexity of the algorithm.

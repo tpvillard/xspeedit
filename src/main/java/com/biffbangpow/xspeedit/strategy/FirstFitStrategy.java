@@ -1,5 +1,7 @@
-package com.biffbangpow.xspeedit;
+package com.biffbangpow.xspeedit.strategy;
 
+
+import com.biffbangpow.xspeedit.strategy.AbstractFitStrategy;
 
 import java.util.List;
 
@@ -9,7 +11,7 @@ import java.util.List;
  * <p>Search for a box in the opened box list in which the item will fit. The first box found is used.</p>
  *
  */
-public class FirstFitRobot extends AbstractBestFirstFitRobot {
+public class FirstFitStrategy extends AbstractFitStrategy {
 
     /**
      * Returns a box in which the item can fit. The first box found is used.

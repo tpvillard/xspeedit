@@ -1,11 +1,11 @@
-package com.biffbangpow.xspeedit;
+package com.biffbangpow.xspeedit.strategy;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * An abstract robot implementation ready for best/first fit algorithm.
+ * An abstract packing strategy for best/first fit algorithm.
  * <p>
  * <p>The boxes are kept opened as long as their capacity has not been reached.
  * The robot hence holds a list of opened box.</p>
@@ -15,12 +15,12 @@ import java.util.List;
  * <p>When a box gets full, the box is removed from the opened box list and ready for output</p>
  * <p>We sacrifice space for optimization.</p>
  */
-public abstract class AbstractBestFirstFitRobot extends AbstractRobot {
+public abstract class AbstractFitStrategy extends AbstractPackingStrategy {
 
     protected abstract Box searchBox(int item, List<Box> openedBoxes);
 
     @Override
-    public String pack(int[] items) {
+    public String doPack(int[] items) {
 
         List<Box> openedBoxes = new ArrayList<>();
         StringBuilder boxes = new StringBuilder();
