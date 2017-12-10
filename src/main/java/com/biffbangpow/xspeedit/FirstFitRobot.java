@@ -12,7 +12,7 @@ import java.util.List;
 public class FirstFitRobot extends AbstractBestFirstFitRobot {
 
     /**
-     * Returns the first box in which the item can fit.
+     * Returns a box in which the item can fit. The first box found is used.
      * @param item the item to pack
      * @param boxes the list of opened boxes
      * @return the box or null if no box is found

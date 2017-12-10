@@ -12,7 +12,7 @@ import java.util.List;
 public class BestFitRobot extends AbstractBestFirstFitRobot {
 
     /**
-     * Returns the first box in which the item can fit.
+     * Returns a box in which the item can fit. the best box is used.
      *
      * @param item  the item to pack
      * @param boxes the list of opened boxes
@@ -23,7 +23,6 @@ public class BestFitRobot extends AbstractBestFirstFitRobot {
 
         Box found = null;
         int minSpaceLeft = 10;
-        System.out.println("Searching for best fit");
         for (Box box : boxes) {
             if (box.fitFor(item)) {
                 int spaceLeft = box.getSpaceLeft() - item;
@@ -31,13 +30,11 @@ public class BestFitRobot extends AbstractBestFirstFitRobot {
                     found = box;
                     break;
                 } else if (spaceLeft <= minSpaceLeft) {
-                    System.out.println("spaceLeft: " + spaceLeft);
                     minSpaceLeft = spaceLeft;
                     found = box;
                 }
             }
         }
-        System.out.println("End Searching for best fit");
         return found;
     }
 }

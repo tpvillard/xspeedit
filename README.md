@@ -1,7 +1,7 @@
 XspeedIt
 ========
 
-[![Build Status](https://travis-ci.org/tpvillard/xspeedit.svg?branch=master)](https://travis-ci.org/tpvillard/xspeedit)[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a759782d77e409599c47a2efecc04b7)](https://www.codacy.com/app/tpvillard/xspeedit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tpvillard/xspeedit&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/tpvillard/xspeedit.svg?branch=master)](https://travis-ci.org/tpvillard/xspeedit)[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a759782d77e409599c47a2efecc04b7)](https://www.codacy.com/app/tpvillard/xspeedit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tpvillard/xspeedit&amp;utm_campaign=Badge_Grade)[![Coverage Status](https://coveralls.io/repos/github/tpvillard/xspeedit/badge.svg)](https://coveralls.io/github/tpvillard/xspeedit)
 
 
 ## Problème ##
