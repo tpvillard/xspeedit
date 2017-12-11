@@ -9,6 +9,12 @@ import static org.testng.Assert.fail;
 public class RobotTest {
 
     @Test
+    public void test_main_entry_point() {
+        String[] args = {"111111111111111111"};
+        Robot.main(args);
+    }
+
+    @Test
     public void test_best_fit_robot_conforms_to_spec() {
         Robot robot = Robot.newBestFitRobot();
         assertEquals(robot.pack("163841689525773"), "163/46/82/55/73/81/9/7");
