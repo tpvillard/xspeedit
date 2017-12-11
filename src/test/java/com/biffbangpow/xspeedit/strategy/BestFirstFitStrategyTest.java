@@ -18,7 +18,7 @@ public class BestFirstFitStrategyTest {
     private List<Box> openedBoxes = new ArrayList<>();
 
     @BeforeMethod
-    public void setup() {
+    public void setUp() {
         openedBoxes.clear();
     }
 

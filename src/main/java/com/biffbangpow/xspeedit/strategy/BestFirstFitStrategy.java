@@ -36,7 +36,7 @@ public class BestFirstFitStrategy extends AbstractPackingStrategy {
         return boxes.toString();
     }
 
-    void treatItem(List<Box> openedBoxes, StringBuilder boxes, int item) {
+    protected void treatItem(List<Box> openedBoxes, StringBuilder boxes, int item) {
         Box box = searchStrategy.searchBox(item, openedBoxes);
         if (box == null) {
             stat.incBoxCount();
