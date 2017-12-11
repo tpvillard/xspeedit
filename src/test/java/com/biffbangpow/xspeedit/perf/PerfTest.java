@@ -99,8 +99,8 @@ public class PerfTest {
     }
 
     private static class MinMax {
-        float smallTime;
-        float largeTime;
+        private float smallTime;
+        private float largeTime;
     }
 }
 

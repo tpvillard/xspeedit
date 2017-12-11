@@ -43,7 +43,7 @@ public class Robot {
      * @return the items to pack as an array of digits
      * @throws IllegalArgumentException when input parameter is in error
      */
-    static int[] of(String input) {
+    protected static int[] of(String input) {
 
         if (input == null || input.isEmpty()) {
             throw new IllegalArgumentException("Input can't be null nor empty.");
