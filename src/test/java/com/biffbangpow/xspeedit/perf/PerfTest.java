@@ -1,4 +1,4 @@
-package com.biffbangpow.xspeedit.Perf;
+package com.biffbangpow.xspeedit.perf;
 
 import com.biffbangpow.xspeedit.strategy.*;
 import org.testng.Assert;

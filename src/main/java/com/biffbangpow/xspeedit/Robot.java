@@ -32,7 +32,7 @@ public class Robot {
      *
      * @return the stats
      */
-    public Stat getStats() {
+    private Stat getStats() {
         return strategy.getStat();
     }
 
@@ -65,6 +65,29 @@ public class Robot {
             }
         }
         return items;
+    }
+
+    /**
+     * Main entry point.
+     * @param args the input to pack.
+     */
+    public static void main(String[] args) {
+
+        String input;
+        if (args.length == 0) {
+            input = "163841689525773";
+        } else {
+            input = args[0];
+        }
+
+        Robot robot = Robot.newBestFitRobot();
+        try {
+            System.out.println("Packing: " + input);
+            System.out.println(robot.pack(input));
+            System.out.println(robot.getStats());
+        } catch (IllegalArgumentException ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
     /**

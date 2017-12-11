@@ -1,7 +1,7 @@
 XspeedIt
 ========
 
-[![Build Status](https://travis-ci.org/tpvillard/xspeedit.svg?branch=master)](https://travis-ci.org/tpvillard/xspeedit)[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a759782d77e409599c47a2efecc04b7)](https://www.codacy.com/app/tpvillard/xspeedit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tpvillard/xspeedit&amp;utm_campaign=Badge_Grade)[![Coverage Status](https://coveralls.io/repos/github/tpvillard/xspeedit/badge.svg)](https://coveralls.io/github/tpvillard/xspeedit)
+[![Build Status](https://travis-ci.org/tpvillard/xspeedit.svg?branch=master)](https://travis-ci.org/tpvillard/xspeedit) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a759782d77e409599c47a2efecc04b7)](https://www.codacy.com/app/tpvillard/xspeedit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tpvillard/xspeedit&amp;utm_campaign=Badge_Grade) [![Coverage Status](https://coveralls.io/repos/github/tpvillard/xspeedit/badge.svg)](https://coveralls.io/github/tpvillard/xspeedit)
 
 
 ## Problème ##
@@ -37,3 +37,23 @@ L'ordre des cartons et des articles n'a pas d'importance.
 Articles      : 163841689525773  
 Robot actuel  : 163/8/41/6/8/9/52/5/7/73 => 10 cartons utilisés  
 Robot optimisé: 163/82/46/19/8/55/73/7   => 8  cartons utilisés
+
+Solution
+--------
+
+La solution implémentée utilise JDK 1.7 et Maven 3
+
+Pour construire la solution, executer:
+
+```
+mvn clean install
+```
+
+Pour lancer le programme, executer:
+
+```
+cd target
+java -jar xspeedit-app-0.1-SNAPSHOT.jar
+```
+
+Pour suivre les décisions de design, consulter doc/arch/adr-NNN.md
