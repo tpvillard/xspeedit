@@ -4,10 +4,10 @@
 
 adr-2 proposed a first fit packing algorithm. Performance measurements states:
 
-* Number of box used: 640 => 511 for 1000 items, roughly 20 % less box used.
-* Response time: 27058 ns => 568693 ns for 1000 items, x 20 degradation in response time.
-* Time complexity: around O(n) => around O(3n).
-* Space complexity: 1 box opened at max => 87 boxes opened at max for 1000 items.
+* Number of box used: 511 for 1000 items, roughly 20 % less box used than the default algorithm.
+* Response time: 568693 ns for 1000 items, x 20 degradation in response time compared to the default algorithm.
+* Time complexity: around O(3n).
+* Space complexity: 87 boxes opened at max for 1000 items.
 
 
 ### Decision ###

@@ -2,13 +2,12 @@
 
 ### Context ###
 
-adr-3 proposed a best fit packing algorithm. 
-Performance measurements states (compared to first fit algorithm):
+adr-3 proposed a best fit packing algorithm. Performance measurements states:
 
-* Number of box used: 506 => 511 for 1000 items.
-* Response time: same.
-* Time complexity: same.
-* Space complexity: 87 box opened at max => 74 box opened at max for 1000 items.
+* Number of box used: 511.
+* Response time: roughly the same as first fit.
+* Time complexity: roughly the same as first fit.
+* Space complexity: 74.
 
 The main improvement is in the number of opened boxes.
 
