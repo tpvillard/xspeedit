@@ -7,7 +7,7 @@ adr-3 proposed a best fit packing algorithm. Performance measurements states:
 * Number of box used: 511.
 * Response time: roughly the same as first fit.
 * Time complexity: roughly the same as first fit.
-* Space complexity: 74.
+* Space complexity: 74 opened boxes at max.
 
 The main improvement is in the number of opened boxes.
 

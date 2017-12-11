@@ -9,7 +9,7 @@ Performance measurements for the default algorithm are:
 * Time complexity: around O(n). (Measured with a variation of the data set from 1000 to 10 0000 entries)
 * Space complexity: 1 box opened at max.
 
-The default solution described uses a non optimal solution
+The default solution uses a non optimal solution
 in which a box (or bin) is closed as soon as the current element to treat can't fit in. 
 At any given point in time, there is only one box (or bin) opened.
 
