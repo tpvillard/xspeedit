@@ -61,7 +61,6 @@
                 <version>2.7</version>
                 <configuration>
                     <format>xml</format>
-                    <format>html</format>
                     <maxmem>256m</maxmem>
                     <check/>
                 </configuration>
