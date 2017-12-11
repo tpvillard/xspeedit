@@ -39,8 +39,8 @@ public class PerfTest {
         DefaultPackingStrategy strategy = new DefaultPackingStrategy();
         float estimation = doMeasure(strategy);
 
-        // Verify the algorithm is roughly O(n log (n))
-        assertApproximateEquals(estimation, ratio);
+        // Verify the algorithm is below O(n log (n))
+        assertBelow(estimation, ratio * Math.log(ratio));
     }
 
     @Test
@@ -49,8 +49,8 @@ public class PerfTest {
         BestFirstFitStrategy strategy = new BestFirstFitStrategy(new FirstFitSearch());
         float estimation = doMeasure(strategy);
 
-        // Verify the algorithm is roughly O(10n)
-        assertApproximateEquals(estimation, ratio * 3);
+        // Verify the algorithm is below O(n2)
+        assertBelow(estimation, ratio * ratio);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class PerfTest {
         BestFirstFitStrategy strategy = new BestFirstFitStrategy(new BestFitSearch());
         float estimation = doMeasure(strategy);
 
-        assertApproximateEquals(estimation, ratio * 3);
+        assertBelow(estimation, ratio * ratio);
     }
 
     private float doMeasure(PackingStrategy strategy) {
@@ -79,10 +79,8 @@ public class PerfTest {
         return minMax.largeTime / minMax.smallTime;
     }
 
-    private void assertApproximateEquals(double actual, double expected) {
-        double min = expected * 0.5;
-        double max = expected * 1.5;
-        //Assert.assertTrue(min <= actual && actual <= max);
+    private void assertBelow(double actual, double expected) {
+        Assert.assertTrue(actual <= expected);
     }
 
     private void log(PackingStrategy strategy, int size) {
