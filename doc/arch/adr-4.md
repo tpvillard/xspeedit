@@ -1,4 +1,4 @@
-### Architecture Design Record 3: Best Fit Bin Packing Algorithm. ###
+### Architecture Design Record 4: Best Fit Bin Packing Algorithm. ###
 
 ### Context ###
 
