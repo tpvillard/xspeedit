@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 public class TreeMapTest {
 
-    TreeMap<Integer, String> map;
+    private TreeMap<Integer, String> map;
 
     @BeforeMethod
     public void setUp() {
