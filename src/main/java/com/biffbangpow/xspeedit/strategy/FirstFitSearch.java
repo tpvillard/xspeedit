@@ -2,12 +2,11 @@ package com.biffbangpow.xspeedit.strategy;
 
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * A first fit search.
  *
- * <p>Search for a box in the opened box list in which the item will fit. The first box found is used.</p>
+ * <p>The first box in which the item will fit is selected.</p>
  *
  */
 public class FirstFitSearch implements SearchBoxStrategy {

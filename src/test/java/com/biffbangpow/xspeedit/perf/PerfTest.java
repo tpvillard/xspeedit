@@ -46,7 +46,7 @@ public class PerfTest {
     @Test
     public void measure_complexity_for_first_fit_strategy() {
 
-        BestFirstFitStrategy strategy = new BestFirstFitStrategy(new FirstFitSearch());
+        FitStrategy strategy = new FitStrategy(new FirstFitSearch());
         float estimation = doMeasure(strategy);
 
         // Verify the algorithm is below O(n2)
@@ -56,7 +56,15 @@ public class PerfTest {
     @Test
     public void measure_complexity_for_best_fit_robot() {
 
-        BestFirstFitStrategy strategy = new BestFirstFitStrategy(new BestFitSearch());
+        FitStrategy strategy = new FitStrategy(new BestFitSearch());
+        float estimation = doMeasure(strategy);
+
+        assertBelow(estimation, ratio * ratio);
+    }
+
+    public void measure_complexity_for_worst_fit_robot() {
+
+        FitStrategy strategy = new FitStrategy(new WorstFitSearch());
         float estimation = doMeasure(strategy);
 
         assertBelow(estimation, ratio * ratio);

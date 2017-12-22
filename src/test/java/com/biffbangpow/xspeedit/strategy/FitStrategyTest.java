@@ -11,9 +11,9 @@ import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class BestFirstFitStrategyTest {
+public class FitStrategyTest {
 
-    private BestFirstFitStrategy bestFirstFit;
+    private FitStrategy bestFirstFit;
     private SearchBoxStrategy searchStrategy = mock(SearchBoxStrategy.class);
     private List<Box> openedBoxes = new ArrayList<>();
 
@@ -25,7 +25,7 @@ public class BestFirstFitStrategyTest {
     @Test
     public void test_a_box_is_created() {
 
-        bestFirstFit = new BestFirstFitStrategy(searchStrategy);
+        bestFirstFit = new FitStrategy(searchStrategy);
         when(searchStrategy.searchBox(1, openedBoxes)).thenReturn(null);
 
         bestFirstFit.treatItem(openedBoxes, new StringBuilder(), 1);
@@ -40,7 +40,7 @@ public class BestFirstFitStrategyTest {
         Box box = new Box();
         box.add(7);
         openedBoxes.add(box);
-        bestFirstFit = new BestFirstFitStrategy(searchStrategy);
+        bestFirstFit = new FitStrategy(searchStrategy);
         when(searchStrategy.searchBox(3, openedBoxes)).thenReturn(box);
 
         StringBuilder output = new StringBuilder();

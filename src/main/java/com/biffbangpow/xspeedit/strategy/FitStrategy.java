@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * An abstract packing strategy for best/first fit algorithm.
+ * An abstract packing strategy for best/worst/first fit algorithm.
  * <p>
  * <p>The boxes are kept opened as long as their capacity has not been reached.
  * The robot hence holds a list of opened box.</p>
@@ -16,11 +16,11 @@ import java.util.Optional;
  * <p>When a box gets full, the box is removed from the opened box list and ready for output</p>
  * <p>We sacrifice space for optimization.</p>
  */
-public class BestFirstFitStrategy extends AbstractPackingStrategy {
+public class FitStrategy extends AbstractPackingStrategy {
 
     private final SearchBoxStrategy searchStrategy;
 
-    public BestFirstFitStrategy(SearchBoxStrategy searchStrategy) {
+    public FitStrategy(SearchBoxStrategy searchStrategy) {
         this.searchStrategy = searchStrategy;
     }
 

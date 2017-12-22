@@ -103,7 +103,7 @@ public class Robot {
      * @return the robot
      */
     public static Robot newFirstFitRobot() {
-        return new Robot(new BestFirstFitStrategy(new FirstFitSearch()));
+        return new Robot(new FitStrategy(new FirstFitSearch()));
     }
 
     /**
@@ -111,6 +111,6 @@ public class Robot {
      * @return the robot
      */
     public static Robot newBestFitRobot() {
-        return new Robot(new BestFirstFitStrategy(new BestFitSearch()));
+        return new Robot(new FitStrategy(new BestFitSearch()));
     }
 }
