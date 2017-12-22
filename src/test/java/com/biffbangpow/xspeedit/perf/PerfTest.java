@@ -20,7 +20,7 @@ public class PerfTest {
 
     private int[] smallDataSet;
     private int[] largeDataSet;
-    private int ratio = 10;
+    private int ratio = 50;
 
     @BeforeClass
     public void setUp() {

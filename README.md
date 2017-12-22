@@ -40,7 +40,7 @@ Robot optimisé: 163/82/46/19/8/55/73/7   => 8  cartons utilisés
 Solution
 --------
 
-La solution implémentée utilise JDK 1.7 et Maven 3
+La solution implémentée utilise JDK 1.8 et Maven 3
 
 Pour construire la solution, executer:
 

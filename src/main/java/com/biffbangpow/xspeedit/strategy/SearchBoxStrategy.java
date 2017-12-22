@@ -1,6 +1,7 @@
 package com.biffbangpow.xspeedit.strategy;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * An interface for searching a box in a list of boxes in which an item can fit.

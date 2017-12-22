@@ -1,6 +1,7 @@
 package com.biffbangpow.xspeedit.strategy;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -37,5 +38,13 @@ public class Box {
             builder.append(item);
         }
         return builder.toString();
+    }
+
+    public static class Comparator implements java.util.Comparator<Box> {
+
+        @Override
+        public int compare(Box box1, Box box2) {
+            return box1.getSpaceLeft() - box2.getSpaceLeft();
+        }
     }
 }

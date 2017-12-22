@@ -3,6 +3,7 @@ package com.biffbangpow.xspeedit.strategy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * An abstract packing strategy for best/first fit algorithm.

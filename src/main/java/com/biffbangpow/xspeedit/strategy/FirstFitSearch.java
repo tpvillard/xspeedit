@@ -2,6 +2,7 @@ package com.biffbangpow.xspeedit.strategy;
 
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * A first fit search.
@@ -14,13 +15,6 @@ public class FirstFitSearch implements SearchBoxStrategy {
     @Override
     public Box searchBox(int item, List<Box> boxes) {
 
-        Box found = null;
-        for (Box box : boxes) {
-            if (box.fitFor(item)) {
-                found = box;
-                break;
-            }
-        }
-        return found;
+        return boxes.stream().filter(box -> box.fitFor(item)).findFirst().orElse(null);
     }
 }

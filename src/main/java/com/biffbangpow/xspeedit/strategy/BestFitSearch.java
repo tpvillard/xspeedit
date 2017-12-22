@@ -1,6 +1,7 @@
 package com.biffbangpow.xspeedit.strategy;
 
 
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -12,20 +13,7 @@ public class BestFitSearch implements SearchBoxStrategy {
     @Override
     public Box searchBox(int item, List<Box> boxes) {
 
-        Box found = null;
-        int minSpaceLeft = 10;
-        for (Box box : boxes) {
-            if (box.fitFor(item)) {
-                int spaceLeft = box.getSpaceLeft() - item;
-                if (spaceLeft == 0) {
-                    found = box;
-                    break;
-                } else if (spaceLeft <= minSpaceLeft) {
-                    minSpaceLeft = spaceLeft;
-                    found = box;
-                }
-            }
-        }
-        return found;
+        Comparator<Box> comp = Comparator.comparingInt(Box::getSpaceLeft);
+        return boxes.stream().filter(box -> box.fitFor(item)).min(comp).orElse(null);
     }
 }
