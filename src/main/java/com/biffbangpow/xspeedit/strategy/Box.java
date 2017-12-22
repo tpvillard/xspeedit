@@ -1,7 +1,6 @@
 package com.biffbangpow.xspeedit.strategy;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 /**

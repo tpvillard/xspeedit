@@ -4,8 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.TreeMap;
-
 public class TreeMultimapTest {
 
     private TreeMultimap<Integer, String> map;
