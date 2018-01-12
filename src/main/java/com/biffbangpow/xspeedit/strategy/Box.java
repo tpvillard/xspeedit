@@ -10,7 +10,7 @@ import java.util.List;
 public class Box {
 
     public static final int CAPACITY = 10;
-    public static final Comparator<Box> COMPARATOR = java.util.Comparator.comparingInt(Box::getSpaceLeft);
+    public static final Comparator<Box> COMPARATOR = Comparator.comparingInt(Box::getSpaceLeft);
 
     private final List<Integer> items = new ArrayList<>();
     private int sum = 0;
