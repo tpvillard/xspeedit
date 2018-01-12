@@ -1,6 +1,7 @@
 package com.biffbangpow.xspeedit.strategy;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -9,6 +10,7 @@ import java.util.List;
 public class Box {
 
     public static final int CAPACITY = 10;
+    public static final Comparator<Box> COMPARATOR = java.util.Comparator.comparingInt(Box::getSpaceLeft);
 
     private final List<Integer> items = new ArrayList<>();
     private int sum = 0;
@@ -37,13 +39,5 @@ public class Box {
             builder.append(item);
         }
         return builder.toString();
-    }
-
-    public static class Comparator implements java.util.Comparator<Box> {
-
-        @Override
-        public int compare(Box box1, Box box2) {
-            return box1.getSpaceLeft() - box2.getSpaceLeft();
-        }
     }
 }

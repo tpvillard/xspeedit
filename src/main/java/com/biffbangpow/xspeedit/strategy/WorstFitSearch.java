@@ -14,7 +14,6 @@ public class WorstFitSearch implements SearchBoxStrategy {
     @Override
     public Box searchBox(int item, List<Box> boxes) {
 
-        Comparator<Box> comp = Comparator.comparingInt(Box::getSpaceLeft);
-        return boxes.stream().filter(box -> box.fitFor(item)).max(comp).orElse(null);
+        return boxes.stream().filter(box -> box.fitFor(item)).max(Box.COMPARATOR).orElse(null);
     }
 }

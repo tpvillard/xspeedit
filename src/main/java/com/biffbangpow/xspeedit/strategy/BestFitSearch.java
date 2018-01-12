@@ -13,7 +13,6 @@ public class BestFitSearch implements SearchBoxStrategy {
     @Override
     public Box searchBox(int item, List<Box> boxes) {
 
-        Comparator<Box> comp = Comparator.comparingInt(Box::getSpaceLeft);
-        return boxes.stream().filter(box -> box.fitFor(item)).min(comp).orElse(null);
+        return boxes.stream().filter(box -> box.fitFor(item)).min(Box.COMPARATOR).orElse(null);
     }
 }
